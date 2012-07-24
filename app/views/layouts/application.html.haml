@@ -1,0 +1,22 @@
+!!!
+%html{lang: 'en'}
+
+  %head
+    %title
+      = yield(:page_title) || default_page_title
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}
+    %meta{name: 'keywords', content: yield(:keywords) || default_meta_keywords}
+    %meta{name: 'description', content: yield(:description) || default_meta_description}
+    = favicon_link_tag
+    = stylesheet_link_tag 'application', :media => 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tag
+    = yield(:head)
+    = render 'shared/google_analytics'
+
+  %body
+    #alerts
+      .alert.alert-error.fade.in#alert-error{style: 'display:none'}
+      .alert.alert-success.fade.in#alert-success{style: 'display:none'}
+    .container-fluid.full-height
+      = yield

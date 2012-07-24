@@ -1,0 +1,25 @@
+.row-fluid.post
+  .span4
+  .span4
+    .well
+      %h2
+        = @post.body
+
+.row-fluid.rating-widget
+  .span4
+  .span1
+    %h3 Peaceful
+  .span2
+    %span.rating
+      %span.star{'data-rating' => 1, 'data-id' => @post.to_param}
+      %span.star{'data-rating' => 2, 'data-id' => @post.to_param}
+      %span.star{'data-rating' => 3, 'data-id' => @post.to_param}
+      %span.star{'data-rating' => 4, 'data-id' => @post.to_param}
+      %span.star{'data-rating' => 5, 'data-id' => @post.to_param}
+  .span1
+    %h3 Violent
+
+
+.row-fluid.next-button
+  .span5
+  = link_to 'Get another one', posts_path, class: %w(span2 btn btn-info btn-large)

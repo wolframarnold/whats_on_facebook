@@ -1,0 +1,65 @@
+@import 'bootswatch/slate/variables';
+
+@import 'bootstrap';
+
+@import 'bootswatch/slate/bootswatch';
+
+@import 'font-awesome';
+
+html {
+  height: 100%;
+}
+
+.full-height {
+  position: relative;
+  height: 100%;
+}
+
+#alerts {
+  position: absolute;
+  top: 5px;
+  left: 35%;
+  width: 30%;
+  text-align: center;
+}
+
+.post {
+  margin-top: 100px;
+}
+
+.rating-widget {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.next-button {
+  margin-top: 50px;
+}
+
+// Taken from: https://github.com/FortAwesome/Font-Awesome/blob/master/docs/assets/css/site.css
+// Explanation: http://css-tricks.com/star-ratings/
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  font-size: 30px;
+}
+.rating > span.star {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  //position: relative;
+}
+.rating > span.star:hover {
+  cursor: pointer;
+}
+.rating > span.star:before {
+  content: "\f006";
+  padding-right: 5px;
+  color: #999999;
+  //position: absolute;
+}
+.rating span.star:hover:before, .rating span.star:hover ~ span.star:before {
+  content: "\f005";
+  color: #e3cf7a;
+}

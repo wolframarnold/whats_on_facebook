@@ -14,6 +14,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.2'
   gem 'bootstrap-sass', '~> 2.0.4.0'
   gem 'bootswatch-rails', '~> 0.0.12'
+  gem 'font-awesome-sass-rails', '~> 2.0.0.0'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platform => :ruby
 
@@ -21,16 +22,17 @@ group :assets do
 end
 
 gem 'jquery-rails', '~> 2.0.2'
-gem 'mongoid', '~> 2.4.11'
-gem 'bson_ext', '~> 1.6.2'
+gem 'mongoid', '~> 3.0.1'
+gem 'bson_ext', '~> 1.6.4'
 gem 'haml', '~> 3.1.6'
 gem 'haml-rails', '~> 0.3.4'
 gem 'omniauth', '~> 1.1.0'
 gem 'omniauth-facebook', '~> 1.3.0'
 gem 'simple_form', '~> 2.0.2'
+gem 'thin', '~> 1.4.1'
 
 group :test, :development do
-  gem 'rspec-rails', '~> 2.10.1'
+  gem 'rspec-rails', '~> 2.11.0'
   gem 'heroku'
 end
 
