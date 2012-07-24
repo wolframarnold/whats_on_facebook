@@ -6,12 +6,21 @@ class PostsController < ApplicationController
     # and present feeds in order of lowest rated or something
 
     # This is just temporary. Eventually this will be database query of some sort.
-    @post = Post.find_or_create_by(body: "I think the idea of crowdsourcing posts rating for training a natural language predictor is brilliant.")
+    rand_num=rand()
+    @post=Post.where(:random.gte=>rand_num).first
+    @post=Post.where(:random.lte=>rand_num).first if @post.nil?
+
+    #@post = Post.find_or_create_by(body: "I think the idea of crowdsourcing posts rating for training a natural language predictor is brilliant.")
+
+    # add current_user_id to cookie to track individual voters
+    session[:current_user_id]=rand(1000000000) if session[:current_user_id].nil?
+    puts "current user: "+session[:current_user_id].to_s
   end
 
   def rate
+    #puts "rated by: "+session[:current_user_id].to_s
     @post = Post.find(params[:id])
-    @post.add_rating(params[:rating])
+    @post.add_rating(params[:rating], session[:current_user_id])
     head :ok
   rescue Mongoid::Errors::DocumentNotFound => e
     render json: {error: 'No such post'}, status: 404
