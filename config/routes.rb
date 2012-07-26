@@ -4,6 +4,7 @@ WhatsOnFacebook::Application.routes.draw do
   resources :posts, only: :index do
     member do
       post :rate
+      post :tag
     end
   end
 

@@ -36,6 +36,10 @@ html {
   margin-top: 50px;
 }
 
+.button {
+  margin-top: 10px;
+}
+
 // Taken from: https://github.com/FortAwesome/Font-Awesome/blob/master/docs/assets/css/site.css
 // Explanation: http://css-tricks.com/star-ratings/
 .rating {
@@ -62,4 +66,24 @@ html {
 .rating span.star:hover:before, .rating span.star:hover ~ span.star:before {
   content: "\f005";
   color: #e3cf7a;
+}
+
+//tagging setting
+.tagging {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  font-size: 24px;
+}
+.tagging > span.tag {
+  //font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  position: relative;
+}
+.tagging > span.tag:after {
+  content: ":";
+  padding-right: 5px;
+  color: #999999;
+  //position: absolute;
 }

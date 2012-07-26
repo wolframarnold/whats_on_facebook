@@ -4,7 +4,7 @@
 
 $ ->
   $('.star').click ->
-#    console.log $(this).data()
+    #    console.log $(this).data()
     data = $(this).data()
     $.post('/posts/'+data.id+'/rate', {rating: data.rating}
     ).success( ->
@@ -12,3 +12,14 @@ $ ->
     ).error( (xhr) ->
       $('#alert-error').text("Server Error: " + JSON.parse(xhr.responseText).error).fadeIn(500).delay(1500).fadeOut(2000)
     )
+
+  $('.tag').click ->
+    #    console.log $(this).data()
+    data = $(this).data()
+    $.post('/posts/'+data.id+'/tag', {tag: data.tag}
+    ).success( ->
+      $('#alert-success').text("Thank you!").fadeIn(500).delay(1000).fadeOut(1000)
+    ).error( (xhr) ->
+      $('#alert-error').text("Server Error: " + JSON.parse(xhr.responseText).error).fadeIn(500).delay(1500).fadeOut(2000)
+    )
+
