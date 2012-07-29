@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     if @@next_post=='random'
       rand_num=rand()
       puts rand_num
-      @post=Post.where(:random.gte=>rand_num).first
+      @post=Post.where(:random.gte=>rand_num).last
       @post=Post.where(:random.lte=>rand_num).first if @post.nil?
     elsif @@next_post=='next'
       rand_num=@@current_random
