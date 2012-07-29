@@ -1,61 +1,12 @@
+.row-fluid.next-button
+  .span3
+  = link_to 'Peaceful', '/posts/'+@post.to_param+'/vote_peace', class: %w(span2 btn btn-success btn-large)
+  = link_to 'Neutral', '/posts/'+@post.to_param+'/vote_neutral', class: %w(span2 btn btn-info btn-large)
+  = link_to 'Violent', '/posts/'+@post.to_param+'/vote_violent', class: %w(span2 btn btn-danger btn-large)
+
 .row-fluid.post
   .span4
   .span4
     .well
       %h2
         = @post.body
-
-.row-fluid.rating-widget
-  .span4
-  .span1
-    %h3 Peaceful
-  .span2
-    %span.rating
-      %span.star{'data-rating' => 5, 'data-type'=>'violence', 'data-id' => @post.to_param}
-      %span.star{'data-rating' => 4, 'data-type'=>'violence', 'data-id' => @post.to_param}
-      %span.star{'data-rating' => 3, 'data-type'=>'violence', 'data-id' => @post.to_param}
-      %span.star{'data-rating' => 2, 'data-type'=>'violence', 'data-id' => @post.to_param}
-      %span.star{'data-rating' => 1, 'data-type'=>'violence', 'data-id' => @post.to_param}
-  .span1
-    %h3 Violent
-
-.row-fluid.rating-widget
-  .span4
-  .span1
-    %h3 Positive
-  .span2
-    %span.rating
-      %span.star{'data-rating' => 5, 'data-type'=>'sentiment', 'data-id' => @post.to_param}
-      %span.star{'data-rating' => 4, 'data-type'=>'sentiment', 'data-id' => @post.to_param}
-      %span.star{'data-rating' => 3, 'data-type'=>'sentiment', 'data-id' => @post.to_param}
-      %span.star{'data-rating' => 2, 'data-type'=>'sentiment', 'data-id' => @post.to_param}
-      %span.star{'data-rating' => 1, 'data-type'=>'sentiment', 'data-id' => @post.to_param}
-  .span1
-    %h3 Negative
-
-.row-fluid.button
-  .span3
-  .span1
-    %h3 Tags:
-  .span4
-    %span.tagging
-      %span.tag{'data-id' => @post.to_param, 'data-tag'=>'Sports'} Sports
-      %span.tag{'data-id' => @post.to_param, 'data-tag'=>'Food'} Food
-      %span.tag{'data-id' => @post.to_param, 'data-tag'=>'Religion'} Religion
-      %span.tag{'data-id' => @post.to_param, 'data-tag'=>'Politics'} Politics
-      %span.tag{'data-id' => @post.to_param, 'data-tag'=>'Love'} Love
-      %span.tag{'data-id' => @post.to_param, 'data-tag'=>'Drug'} Drug
-      %span.tag{'data-id' => @post.to_param, 'data-tag'=>'Drink'} Drink
-      %span.tag{'data-id' => @post.to_param, 'data-tag'=>'Animal'} Animal
-      %span.tag{'data-id' => @post.to_param, 'data-tag'=>'Relationship'} Relationship
-      %span.tag{'data-id' => @post.to_param, 'data-tag'=>'Vent'} Vent
-      %span.tag{'data-id' => @post.to_param, 'data-tag'=>'Music'} Music
-      %span.tag{'data-id' => @post.to_param, 'data-tag'=>'Dance'} Dance
-      %span.tag{'data-id' => @post.to_param, 'data-tag'=>'Art'} Art
-  -#.span1
-  -#  %h3 End
-
-
-.row-fluid.next-button
-  .span5
-  = link_to 'Get another one', posts_path, class: %w(span2 btn btn-info btn-large)

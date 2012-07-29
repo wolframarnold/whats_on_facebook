@@ -5,6 +5,9 @@ WhatsOnFacebook::Application.routes.draw do
     member do
       post :rate
       post :tag
+      get  :vote_peace
+      get  :vote_neutral
+      get  :vote_violent
     end
   end
 

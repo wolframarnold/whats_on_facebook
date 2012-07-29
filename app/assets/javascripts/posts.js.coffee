@@ -22,4 +22,3 @@ $ ->
     ).error( (xhr) ->
       $('#alert-error').text("Server Error: " + JSON.parse(xhr.responseText).error).fadeIn(500).delay(1500).fadeOut(2000)
     )
-
