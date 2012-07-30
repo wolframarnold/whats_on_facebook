@@ -2,3 +2,7 @@ What's on Facebook
 ==================
 
 Rate people's posts and tag them.
+
+On Heroku:
+facebooksayswhat.herokuapp.com
+

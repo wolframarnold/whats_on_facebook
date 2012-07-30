@@ -49,8 +49,8 @@ class Post
 
 
 
-  def self.import_from_csv
-    csv_text = File.read('../../python/fbcorpus.txt')
+  def self.import_from_csv(range)
+    csv_text = File.read('data/fbcorpus.txt')
     rows=csv_text.encode('UTF-8', 'UTF-8', :invalid => :replace).split("\r")
 
     tags=rows.collect do |row|
@@ -59,20 +59,16 @@ class Post
     end.compact!
 
 
-    rows[0..5].map do |row|
+    rows[range].map do |row|
       a_post = row.split("\t")
       if a_post[3].length > 25 && a_post[3].length<500
         p=Post.add_post(a_post[3], a_post[0]) #body, search_keyword
-        if a_post[1].present?   #Weidong has given it a sentiment rating already pos 1, neg 5
-          rating = (a_post[1]=="pos") ? 1 : 5
-          p.add_rating("sentiment", rating, 1, "127.0.0.1")
-        end
         if a_post[2].present? #Weidong has given it a tag
           tag=a_post[2].downcase
           if tag=='hate' || tag=='violence' || tag=='anger'
-            p.add_rating("violence", rating, 5, "127.0.0.1")
-          else
-            p.add_tag(tag, 1, "127.0.0.1")
+            p.add_tag('violent', 1, "127.0.0.1")
+          elsif tag=='love'
+            p.add_tag('peace', 1, "127.0.0.1")
           end
         end
       end

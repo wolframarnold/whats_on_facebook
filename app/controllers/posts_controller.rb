@@ -15,17 +15,17 @@ class PostsController < ApplicationController
     if @@next_post=='random'
       rand_num=rand()
       puts rand_num
-      @post=Post.where(:random.gte=>rand_num).last
-      @post=Post.where(:random.lte=>rand_num).first if @post.nil?
+      @post=Post.where(:random.gte=>rand_num).asc(:random).first
+      @post=Post.where(:random.lte=>rand_num).desc(:random).first if @post.nil?
     elsif @@next_post=='next'
       rand_num=@@current_random
-      @post=Post.where(:random.gt=>rand_num).last
-      @post=Post.where(:random.gte=>0.0).last if @post.nil?
+      @post=Post.where(:random.gt=>rand_num).asc(:random).first
+      @post=Post.where(:random.gte=>0.0).asc(:random).first if @post.nil?
       @@next_post='random'
     elsif @@next_post=='previous'
       rand_num=@@current_random
-      @post=Post.where(:random.lt=>rand_num).first
-      @post=Post.where(:random.lte=>1.0).first if @post.nil?
+      @post=Post.where(:random.lt=>rand_num).desc(:random).first
+      @post=Post.where(:random.lte=>1.0).desc(:random).first if @post.nil?
       @@next_post='random'
     end
 
