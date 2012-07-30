@@ -6,3 +6,11 @@ Rate people's posts and tag them.
 On Heroku:
 facebooksayswhat.herokuapp.com
 
+To import post to database, open rails console, and run
+Post.import_from_csv(0..-1)
+
+To clear
+Post.clear_all_posts
+
+To clear votes
+Post.clear_all_votes
