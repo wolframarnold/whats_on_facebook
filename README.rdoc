@@ -1,6 +1,8 @@
 What's on Facebook
 ==================
 
+Copyright 2012-2015 by Wolfram Arnold and Weidong Yang
+
 Rate people's posts and tag them.
 
 On Heroku:
